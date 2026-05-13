@@ -1,0 +1,136 @@
+// Create a new user with a USER role
+POST http://localhost:5001/user-api/users
+Content-Type: application/json
+
+{
+    "firstName": "Anand",
+    "lastName": "Kumar",
+    "email": "23eg105b55@anurag.edu.in",
+    "password": "anand123",
+    "profileImageUrl": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+}
+
+###
+// Create a new user with a USER role
+POST http://localhost:5000/author-api/users
+Content-Type: application/json
+
+{
+    "firstName": "Mani",
+    "lastName": "Sri",
+    "email": "23eg105b21@anurag.edu.in",
+    "password": "mani123",
+    "profileImageUrl": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+}
+
+###
+// Login as the created user role to get a JWT token
+POST http://localhost:5000/common-api/login
+Content-Type: application/json
+
+{
+    "password": "1234",
+    "email": "testing3@gmail.com"
+}
+
+###
+// Login as the created author role to get a JWT token
+POST http://localhost:5000/common-api/login
+Content-Type: application/json
+
+{
+    "password": "1234",
+    "email": "testing11@gmail.com"
+}
+
+###
+// Login as the created admin role to get a JWT token
+POST http://localhost:5000/common-api/login
+Content-Type: application/json
+
+{
+    "password": "admin",
+    "email": "admin@gmail.com"
+}
+
+###
+// Create a new article as an AUTHOR (replace <JWT_TOKEN> with the token obtained from the previous step)
+POST http://localhost:5000/author-api/articles
+Content-Type: application/json
+
+{
+    "author" : "69afe867c40dd5d5d78702da",
+    "title": "Hello World",
+    "content": "This is the content of my first article.",
+    "category": "Technology"
+}
+
+// Get the article by author
+###
+GET http://localhost:5000/author-api/articles/6989663bf620ae5d19bed315
+
+###
+//Update the article
+PUT http://localhost:5000/author-api/articles
+Content-Type: application/json
+
+{
+    "author" : "6989663bf620ae5d19bed315",
+    "articleId": "698974374ec738758611c2e7",
+    "title": "My Updated Article",
+    "content": "This is the updated content of my article.",
+    "category": "Science"
+}
+
+###
+//logout
+GET http://localhost:5000/common-api/logout
+
+###
+POST http://localhost:5000/user-api/comments
+Content-Type: application/json
+
+{
+    "articleId": "69c4fc9d9f45ef0311f18093",
+    "user": "69c37ee3604c526286421ea7",
+    "comment": "Great article! Very informative."
+}
+
+###
+GET http://localhost:5000/r
+
+###
+//admin can block a user
+PUT http://localhost:5000/admin-api/block-user/6989798d09520f8cd85dcf7f
+
+###
+//admin can unblock a user
+PUT http://localhost:5000/admin-api/unblock-user/6989798d09520f8cd85dcf7f
+
+###
+//admin get articles
+GET http://localhost:5000/user-api/articles
+
+###
+//change the password of the user
+PUT http://localhost:5000/common-api/change-password
+Content-Type: application/json
+
+{
+    "email": "23eg105b53@anurag.edu.in",
+    "currentPassword" : "anand123",
+    "newPassword": "123456789"
+}
+
+###
+# Author can delete the article
+PATCH http://localhost:5000/author-api/articles/698974374ec738758611c2e7
+Content-Type: application/json
+
+{
+    "isArticleActive": false
+}
+
+###
+#Get article by id
+GET http://localhost:5000/common-api/article/69afec78c40dd5d5d78702e0
