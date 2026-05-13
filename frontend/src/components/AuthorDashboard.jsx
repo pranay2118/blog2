@@ -81,7 +81,7 @@ function AuthorDashboard() {
         setLoading(true);
         console.log("user", currentUser);
         const {_id} = currentUser;
-        let resObj = await axios.get(`http://localhost:5001/author-api/articles/${_id}`, {withCredentials:true});
+        let resObj = await axios.get(`https://blog2-eight-plum.vercel.app/author-api/articles/${_id}`, {withCredentials:true});
         console.log("DatA", resObj)
         setArticles(resObj.data.payload);
       }catch(err) {

@@ -40,7 +40,7 @@ function Register() {
 
       if(role === "USER") {
         //make api req
-        let resObj = await axios.post("http://localhost:5001/user-api/users", formData);
+        let resObj = await axios.post("https://blog2-eight-plum.vercel.app/user-api/users", formData);
         let res = resObj.data;
         if(res.status !== 201) {
           setError(res.reason);
@@ -52,7 +52,7 @@ function Register() {
 
       if(role === "AUTHOR") {
         //make api req
-        let resObj = await axios.post("http://localhost:5001/author-api/users", formData);
+        let resObj = await axios.post("https://blog2-eight-plum.vercel.app/author-api/users", formData);
         let res = resObj.data;
         if(res.status !== 201) {
           setError(res.reason);

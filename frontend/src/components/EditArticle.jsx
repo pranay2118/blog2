@@ -44,7 +44,7 @@ function EditArticle() {
     console.log(data);
     data.articleId = article._id;
     data.author = currentUser._id;
-    let res = await axios.put("http://localhost:5001/author-api/articles", data, { withCredentials: true });
+    let res = await axios.put("https://blog2-eight-plum.vercel.app/author-api/articles", data, { withCredentials: true });
     console.log("res update atricle", res);
     navigate(`/article/${article._id}`, {
       state: res.data.payload,

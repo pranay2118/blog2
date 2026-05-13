@@ -40,7 +40,7 @@ function SingleArticle() {
       setLoading(true);
 
       try {
-        const res = await axios.get(`http://localhost:5001/common-api/article/${id}`, { withCredentials: true });
+        const res = await axios.get(`https://blog2-eight-plum.vercel.app/common-api/article/${id}`, { withCredentials: true });
 
         setArticle(res.data.payload);
       } catch (err) {
@@ -70,7 +70,7 @@ function SingleArticle() {
 
     try {
       const res = await axios.patch(
-        `http://localhost:5001/author-api/articles/${id}/status`,
+        `https://blog2-eight-plum.vercel.app/author-api/articles/${id}/status`,
         { isArticleActive: newStatus },
         { withCredentials: true },
       );
@@ -102,7 +102,7 @@ function SingleArticle() {
     //add artcileId
     commentObj.articleId = article._id;
     console.log(commentObj);
-    let res = await axios.post("http://localhost:5001/user-api/comments", commentObj, { withCredentials: true });
+    let res = await axios.post("https://blog2-eight-plum.vercel.app/user-api/comments", commentObj, { withCredentials: true });
     if (res.status === 200) {
       toast.success(res.data.message);
       setArticle(res.data.payload);

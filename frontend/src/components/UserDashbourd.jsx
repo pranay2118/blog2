@@ -18,7 +18,7 @@ function UserDashbourd() {
       async function getArticles() {
         setLoading(true);
         //make api req
-        let resObj = await axios.get("http://localhost:5001/user-api/articles", {withCredentials:true});
+        let resObj = await axios.get("https://blog2-eight-plum.vercel.app/user-api/articles", {withCredentials:true});
         //change state
         console.log("res",resObj);
         setArticles(resObj.data.payload);

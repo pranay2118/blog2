@@ -12,7 +12,7 @@ export const useAuth = create((set) => ({
             //set loading true
             set({loading:true, error:null});
             //make api call
-            let res = await axios.post("http://localhost:5001/common-api/login", userCredObj, {withCredentials:true});
+            let res = await axios.post("https://blog2-eight-plum.vercel.app/common-api/login", userCredObj, {withCredentials:true});
             console.log("res is", res, res.status);
             if(res.data?.message === "error") {
                 console.log("not 200", res.data);
@@ -32,7 +32,7 @@ export const useAuth = create((set) => ({
             //set loading state
             set({loading:true, error:null});
             //make api request
-            await axios.get("http://localhost:5001/common-api/logout", { withCredentials: true});
+            await axios.get("https://blog2-eight-plum.vercel.app/common-api/logout", { withCredentials: true});
             //update state
             set({loading:false, isAuthenticated: false, currentUser: null});
         }catch(err) {
@@ -49,7 +49,7 @@ export const useAuth = create((set) => ({
         try {
             //set loading state
             set({loading:true, error:null});
-            const res = await axios.get("http://localhost:5001/common-api/check-auth", { withCredentials : true});
+            const res = await axios.get("https://blog2-eight-plum.vercel.app/common-api/check-auth", { withCredentials : true});
             //update the state
             set({loading:false, isAuthenticated: true, currentUser: res.data.payload});
         }catch(err) {

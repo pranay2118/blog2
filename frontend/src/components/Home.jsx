@@ -32,7 +32,7 @@ function Home() {
         console.log("end", end);
 
         const resObj = await axios.get(
-          `http://localhost:5001/${end}/articles`,
+          `https://blog2-eight-plum.vercel.app/${end}/articles`,
           { withCredentials: true }
         );
 
