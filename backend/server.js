@@ -12,10 +12,10 @@ config();   //process.env
 
 const app = Express();
 
-//app.use(cors({ origin : ["http://localhost:5173","  https://blog2-ihb7.vercel.app"], credentials:true}));
+app.use(cors({ origin : ["http://localhost:5173","  https://blog2-ihb7.vercel.app"], credentials:true}));
 // app.use(cors());
 //add body parser middleware
-app.use(cors({origin : "https://blog2-ihb7.vercel.app", credentials: true}));
+//pp.use(cors({origin : "https://blog2-ihb7.vercel.app", credentials: true}));
 app.use(Express.json());
 app.use(cookieParser());
 
