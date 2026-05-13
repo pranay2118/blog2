@@ -28,8 +28,8 @@ commonRoute.get('/logout', async (req, res) => {
     //Clear the cookie named 'token
     res.clearCookie('token', {
         httpOnly : true,
-        secure : false,
-        sameSite : 'lax'
+        sameSite : 'none',
+        secure : true
     })
     res.status(200).json({message : "logged out successfully"});
 });
